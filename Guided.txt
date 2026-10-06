@@ -1,0 +1,10 @@
+/Collect Data from API
+ const res = await fetch('api');
+    const data = await res.json();
+    const navs: NavLinksProps[] = data.data;
+
+/filter 
+const filterNavs = navs.filter(n=>n.scrapable)
+
+/Map
+{filterNavs.map((n,i)=><Link key={i} href={n.slug} className="text-gray-600 hover:text-gray-900">{n.title}</Link>)}
