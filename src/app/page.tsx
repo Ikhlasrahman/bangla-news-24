@@ -9,6 +9,11 @@ export default async function Home() {
   const data = await res.json();
   const sections = data.data;
   const mainNews = sections[0].articles;
+
+  const [firstSection, ...otherSections] = sections;
+
+  console.log(firstSection, otherSections);
+
   
   return (
     <div>
