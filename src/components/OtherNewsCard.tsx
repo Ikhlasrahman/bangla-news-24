@@ -18,7 +18,7 @@ const OtherNewsCard = ({ news }:{news:News}) => {
                     <figure>
                         <Image
                             src={news.imageUrl}
-                            alt={news.title}
+                            alt={news.imageAlt}
                             width={250}
                             height={150}
                         />

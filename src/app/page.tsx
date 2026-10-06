@@ -9,8 +9,10 @@ interface IOtherSection{
   title:string;
   articles:{
     id:string;
+    title:string
     category:string;
     imageUrl:string;
+    imageAlt:string
     description:string;
   }[];
 
