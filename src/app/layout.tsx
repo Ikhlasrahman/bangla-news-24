@@ -4,6 +4,7 @@ import "./globals.css";
 import TopNav from "@/components/topnav";
 import NavLinks from "@/components/NavLinks";
 
+
 const notoserif = Noto_Serif_Bengali({
   subsets: ["latin", "bengali"],
 });
@@ -23,8 +24,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${notoserif.className} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <TopNav/>
-        <NavLinks/>
+        <TopNav />
+        <NavLinks />
         {children}
       </body>
     </html>

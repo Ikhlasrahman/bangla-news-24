@@ -15,7 +15,7 @@ const NavLinks = async () => {
     const filterNavs = navs.filter(n=>n.scrapable)
     return (
         <div className="flex justify-center gap-4 py-2">
-            <Link href="/" className="text-gray-600 hover:text-gray-900">Home</Link>
+            <Link href="/" className="text-gray-600 hover:text-gray-900">হোম</Link>
                 {filterNavs.map((n,i)=><Link key={i} href={n.slug} className="text-gray-600 hover:text-gray-900">{n.title}</Link>)}
         </div>
     );
