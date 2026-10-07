@@ -13,21 +13,21 @@ const NewsDetailsPage = async ({ params }: { params: { newsId: string } }) => {
 
                 {/* Title */}
                 <h1 className="text-4xl font-bold leading-tight md:text-5xl">
-                    {news.title}
+                    {news?.title}
                 </h1>
 
                 
 
                 <div className="mt-5 flex flex-wrap items-center gap-3 text-sm text-gray-500">
-                    <span>Source: {news.source}</span>
+                    <span>Source: {news?.source}</span>
                     <span>•</span>
                     <span>
-                        {new Date(news.firstPublished).toLocaleDateString("bn-BD")}
+                        {new Date(news?.firstPublished).toLocaleDateString("bn-BD")}
                     </span>
                 </div>
 
                 <div className="mt-4 flex flex-wrap gap-2">
-                    {news.tags.map((tag: string) => (
+                    {news?.tags.map((tag: string) => (
                         <span
                             key={tag}
                             className="rounded-full bg-base-200 px-3 py-1 text-sm"
@@ -39,7 +39,7 @@ const NewsDetailsPage = async ({ params }: { params: { newsId: string } }) => {
 
                 {/* Description */}
                 <p className="mt-5 text-xl leading-8 text-gray-600">
-                    {news.description.blocks[0].model.blocks[0].model.text}
+                    {news?.description.blocks[0].model.blocks[0].model.text}
                 </p>
 
                 
@@ -47,7 +47,7 @@ const NewsDetailsPage = async ({ params }: { params: { newsId: string } }) => {
                 {/* Article Body */}
                 <article className="mt-10 space-y-8">
 
-                    {news.body.map((block: any, index: number) => {
+                    {news?.body.map((block: any, index: number) => {
 
                         if (block.type === "text") {
                             return (
