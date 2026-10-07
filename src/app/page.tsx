@@ -31,7 +31,7 @@ export default async function Home() {
   return (
     <div>
 
-      <Marquee />
+      
       <div className="grid grid-cols-3 max-w-7xl mx-auto gap-4">
         <div className="col-span-2  " >
           <MainNews news={mainNews} />

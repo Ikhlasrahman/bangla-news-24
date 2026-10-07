@@ -20,7 +20,7 @@ const MainNews = ({ news }: MainNewsProps) => {
 
             {/* Main news */}
             <div>
-                <Link href="/">
+                <Link href={`/news/${firstNews.id}`}>
                     <div className="card w-96 bg-base-100 shadow-sm hover:shadow-lg transition-shadow duration-300">
                         <figure>
                             <Image
@@ -33,8 +33,8 @@ const MainNews = ({ news }: MainNewsProps) => {
 
                         <div className="card-body">
                             <p className="text-red-700">
-                            {firstNews.category}
-                        </p>
+                                {firstNews.category}
+                            </p>
                             <h2 className="card-title">
                                 {firstNews.title}
                             </h2>
@@ -47,10 +47,11 @@ const MainNews = ({ news }: MainNewsProps) => {
 
             {/* Other news */}
             <div className="flex flex-col gap-3">
-                {otherNews.slice(0,4).map((o) => (
-                    <div
+                {otherNews.slice(0, 4).map((o) => (
+                    <Link
                         key={o.id}
-                        className="rounded-box bg-base-100 p-4 shadow-md hover:shadow-lg transition-shadow duration-300"
+                        href={`/news/${o.id}`}
+                        className="rounded-box bg-base-100 p-4 shadow-md transition-shadow duration-300 hover:shadow-lg"
                     >
                         <p className="text-red-700">
                             {o.category}
@@ -59,7 +60,7 @@ const MainNews = ({ news }: MainNewsProps) => {
                         <h3>
                             {o.title}
                         </h3>
-                    </div>
+                    </Link>
                 ))}
             </div>
 
