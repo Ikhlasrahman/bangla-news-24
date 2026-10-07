@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
+import UserInfo from './UserInfo';
 
 const TopNav = () => {
     return (
@@ -32,15 +33,7 @@ const TopNav = () => {
                 </div>
 
                 {/* Right-side Buttons */}
-                < div className="absolute right-4 flex items-center gap-2">
-                    <button className="btn btn-ghost btn-sm">
-                        সাইন ইন
-                    </button>
-
-                    <button className="btn btn-error btn-sm">
-                        সাইন আপ
-                    </button>
-                </div>
+                <UserInfo/>
 
             </div>
         </div>
