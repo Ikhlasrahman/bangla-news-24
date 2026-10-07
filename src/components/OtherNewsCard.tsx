@@ -13,7 +13,7 @@ interface News {
 const OtherNewsCard = ({ news }:{news:News}) => {
     return (
         <div>
-            <Link href="/">
+            <Link href={`/news/${news.id}`}>
                 <div className="card bg-base-100 shadow-sm">
                     <figure>
                         <Image
