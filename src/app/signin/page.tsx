@@ -34,6 +34,7 @@ const SignInPage = () => {
         const data = await authClient.signIn.social({
             provider: "github",
         });
+        console.log(data);
     }
     return (
         <div className='flex justify-center '>
