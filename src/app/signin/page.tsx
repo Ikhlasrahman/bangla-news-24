@@ -8,23 +8,30 @@ const SignInPage = () => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const user = Object.fromEntries(formData.entries()) as { email: string; password: string };
-        const {data,error}= await authClient.signIn.email({
+        const { data, error } = await authClient.signIn.email({
             ...user,
             callbackURL: "/",
         });
 
         console.log(user)
 
-        if (data){
+        if (data) {
             toast.success('Sign In Successfully')
-        } 
+        }
 
-        if(error){
+        if (error) {
             toast.error(error.message as string);
         }
     };
+
+    const handleGoogleSignIn = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        });
+        console.log(data);
+    }
     return (
-        <div className='flex justify-center'>
+        <div className='flex justify-center '>
             <form onSubmit={onSubmit}>
                 <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
 
@@ -37,6 +44,10 @@ const SignInPage = () => {
                     <button className="btn btn-neutral text-white bg-red-800 mt-4">সাইন ইন করুন</button>
                 </fieldset>
             </form>
+
+
+            <button className="btn btn-accent" onClick={handleGoogleSignIn}>Sign In With Google</button>
+
         </div>
     );
 };
