@@ -8,7 +8,7 @@ const NewsDetailsPage = async ({ params }: { params: { newsId: string } }) => {
     const data = await res.json()
     const news = data.data;
     if(!news){
-        notFound();
+        notFound()
     }
     return (
         <div>
@@ -50,7 +50,7 @@ const NewsDetailsPage = async ({ params }: { params: { newsId: string } }) => {
                 {/* Article Body */}
                 <article className="mt-10 space-y-8">
 
-                    {news?.body.map((block: any, index: number) => {
+                    {news?.body.map((block: { type: "text" | "subheading"; text: string } | { type: "image"; url: string; altText?: string; caption?: string; width: number; height: number }, index: number) => {
 
                         if (block.type === "text") {
                             return (

@@ -5,7 +5,7 @@ import UserInfo from './UserInfo';
 const TopNav = () => {
     return (
         <div className="border-t-2 border-gray-700">
-            <div className="relative mx-auto flex max-w-[960px] items-center justify-center px-4 py-4">
+            <div className="relative mx-auto flex max-w-240 items-center justify-center px-4 py-4">
 
                 {/* Centered Logo + Brand */}
                 <div className="flex items-center gap-2">
