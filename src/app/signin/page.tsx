@@ -30,6 +30,11 @@ const SignInPage = () => {
         });
         console.log(data);
     }
+    const handleGitHubSignIn = async () => {
+        const data = await authClient.signIn.social({
+            provider: "github",
+        });
+    }
     return (
         <div className='flex justify-center '>
             <form onSubmit={onSubmit}>
@@ -47,6 +52,8 @@ const SignInPage = () => {
 
 
             <button className="btn btn-accent" onClick={handleGoogleSignIn}>Sign In With Google</button>
+
+            <button className="btn btn-accent" onClick={handleGitHubSignIn}>Sign In With Github</button>
 
         </div>
     );
