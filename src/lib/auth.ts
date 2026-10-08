@@ -3,11 +3,8 @@ import { MongoClient } from "mongodb";
 import { mongodbAdapter } from "@better-auth/mongo-adapter";
 
 const client = new MongoClient(process.env.BETTER_AUTH_MONGODB!);
-console.log(
-  "MongoDB environment variable exists:",
-  !!process.env.BETTER_AUTH_MONGODB
-);
-const db = client.db("bangla-news-24");
+
+const db = client.db("bdnewsadmin");
 
 export const auth = betterAuth({
     emailAndPassword: { 
