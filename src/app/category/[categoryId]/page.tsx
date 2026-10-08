@@ -1,4 +1,5 @@
 import OtherNewsCard from '@/components/OtherNewsCard';
+import { notFound } from 'next/navigation';
 import React from 'react';
 
 interface MainNewsProps {
@@ -15,7 +16,9 @@ const Categorypage = async ({params}:{params:{categoryId:string}}) => {
     const res = await fetch(`https://news-api-v2.vercel.app/api/category/${categoryId}`)
     const data = await res.json();
     const categoryNews:MainNewsProps[] = data.data;
-    console.log('check response',data,categoryNews)
+    if(!categoryNews){
+            notFound();
+        }
     return (
         <div className='mx-auto max-w-7xl'>
            <h2 className='mb-4 border-b-2 border-red-700 pb-2 text-2xl font-bold text-neutral-900'>{data.title}</h2>
