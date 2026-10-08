@@ -4,6 +4,7 @@ import "./globals.css";
 import TopNav from "@/components/topnav";
 import NavLinks from "@/components/NavLinks";
 import Marquee from "@/components/Marquee";
+import { Toaster } from "react-hot-toast";
 
 
 const notoserif = Noto_Serif_Bengali({
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <NavLinks />
         <Marquee/>
         {children}
+        <Toaster/>
       </body>
     </html>
   );

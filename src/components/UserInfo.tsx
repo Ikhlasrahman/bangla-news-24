@@ -1,6 +1,7 @@
 "use client"
 import { authClient } from "@/lib/auth-client"
 import Image from "next/image";
+import Link from "next/link";
 
 const UserInfo = () => {
     const { data: session, } = authClient.useSession()
@@ -40,16 +41,20 @@ const UserInfo = () => {
     </div>
   ) : (
     <div className="flex items-center gap-2">
-      <button className="btn btn-ghost btn-sm">
+      <Link href={'/signin'}>
+        <button className="btn btn-ghost btn-sm">
         সাইন ইন
       </button>
+      </Link>
 
+     <Link href={'/signup'}>
       <button
         className="btn btn-error btn-sm"
         onClick={handleSignout}
       >
         সাইন আপ
       </button>
+     </Link>
     </div>
   )}
 </div>

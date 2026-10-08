@@ -1,9 +1,31 @@
-import React from 'react';
+'use client'
+
+import { authClient } from "@/lib/auth-client";
+import toast from "react-hot-toast";
 
 const SignInPage = () => {
+    const onSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const user = Object.fromEntries(formData.entries()) as { email: string; password: string };
+        const {data,error}= await authClient.signIn.email({
+            ...user,
+            callbackURL: "/",
+        });
+
+        console.log(user)
+
+        if (data){
+            toast.success('Sign In Successfully')
+        } 
+
+        if(error){
+            toast.error(error.message as string);
+        }
+    };
     return (
         <div className='flex justify-center'>
-            <form>
+            <form onSubmit={onSubmit}>
                 <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
 
                     <label className="label">ইমেইল</label>
